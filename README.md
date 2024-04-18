@@ -43,7 +43,8 @@ void *thread_function(void *arg) {
     printf("This is a thread function.\n");
     return NULL;
 }
-
+'''
+'''
 int main() {
     pthread_t tid; // Thread ID
     int result;
@@ -131,3 +132,4 @@ int main() {
     return 0;
 }
 '''
+
