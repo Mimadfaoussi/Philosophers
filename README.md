@@ -36,7 +36,9 @@ This project is about learning how threads work by precisely timing a group of p
 
 <p> we first need to include  pthread.h and we compile using -g -pthread flags  </p>
 
-'''
+```
+
+#include <pthread.h>
 
 void *thread_function(void *arg) {
     printf("This is a thread function.\n");
@@ -63,7 +65,7 @@ int main() {
     return 0;
 }
 
-'''
+```
 
 #### the difference between threads and processes : 
 
@@ -84,7 +86,7 @@ from accessing shared ressources simultaneously . <br>
 Using Mutexes in c :
 </p>
 
-''' 
+```
 #include <stdio.h>
 #include <pthread.h>
 
@@ -131,5 +133,5 @@ int main() {
 
     return 0;
 }
-'''
+```
 
