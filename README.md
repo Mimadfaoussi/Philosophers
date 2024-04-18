@@ -35,13 +35,14 @@ This project is about learning how threads work by precisely timing a group of p
 #### thread creation : 
 
 <p> we first need to include  pthread.h and we compile using -g -pthread flags  </p>
+
 '''
-// Function executed by the thread
 void *thread_function(void *arg) {
     printf("This is a thread function.\n");
     return NULL;
 }
-
+'''
+'''
 int main() {
     pthread_t tid; // Thread ID
     int result;
