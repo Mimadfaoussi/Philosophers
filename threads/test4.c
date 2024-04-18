@@ -4,7 +4,7 @@
 * how to get a value back from the thread
 **/
 
-void	*roll_dice()
+void	*roll_dice(void *arg)
 {
 	int	value = (rand() % 6) + 1;
 	int	*result;
