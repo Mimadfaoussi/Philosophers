@@ -37,12 +37,13 @@ This project is about learning how threads work by precisely timing a group of p
 <p> we first need to include  pthread.h and we compile using -g -pthread flags  </p>
 
 '''
+
 void *thread_function(void *arg) {
     printf("This is a thread function.\n");
     return NULL;
 }
-'''
-'''
+
+
 int main() {
     pthread_t tid; // Thread ID
     int result;
@@ -61,6 +62,7 @@ int main() {
 
     return 0;
 }
+
 '''
 
 #### the difference between threads and processes : 
