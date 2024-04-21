@@ -135,3 +135,6 @@ int main() {
 }
 ```
 
+### Functions used : 
+
+#### gettimeofday function :
