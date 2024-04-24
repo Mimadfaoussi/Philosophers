@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:07:06 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/24 13:41:07 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:52:24 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_philo
 /** HELPER  functions */
 
 int	ft_atoi(const char *str);
+int	check_input(int argc, char **argv);
 
 
 #endif
