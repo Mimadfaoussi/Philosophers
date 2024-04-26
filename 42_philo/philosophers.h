@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:07:06 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/26 16:05:25 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:58:01 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,6 @@
 # include <sys/time.h>
 # include <stdint.h>
 
-typedef struct s_data
-{
-	int					dead;
-	pthread_mutex_t		print_mutex;
-	pthread_mutex_t		eat_mutex;
-	pthread_mutex_t		dead_mutex;
-	t_philo				*philos;
-}				t_data;
 
 typedef struct s_philo
 {
@@ -48,18 +40,28 @@ typedef struct s_philo
 
 }					t_philo;
 
+typedef struct s_data
+{
+	int					dead;
+	pthread_mutex_t		print_mutex;
+	pthread_mutex_t		eat_mutex;
+	pthread_mutex_t		dead_mutex;
+	t_philo				*philo;
+}					t_data;
 
 /** HELPER  functions */
 
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 
 /*** checking input ***/
 
-int	check_input(int argc, char **argv);
-
+int		check_input(int argc, char **argv);
 
 /*** init ***/
 
+void	init_data(t_data *data, t_philo *philo);
+void	init_forks(pthread_mutex_t *forks, char **argv);
+void	destroy_data(t_data *data, pthread_mutex_t *forks, char **argv);
 
 
 #endif
