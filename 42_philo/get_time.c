@@ -6,11 +6,12 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:47:38 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/26 17:47:50 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:49:30 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
 // struct timeval {
 //     time_t      tv_sec;     // seconds
 //     suseconds_t tv_usec;    // microseconds
