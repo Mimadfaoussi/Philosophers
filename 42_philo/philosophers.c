@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:19:29 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/26 20:29:33 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/26 20:43:13 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	init_forks(forks, argv);
 	init_philo(philo, argv, &data, &args);
 	printall(philo);
-	// start_threads();
+	start_threads(philo, &data);
 	// end_threads();
 	destroy_data(&data, forks, argv);
 	return (0);

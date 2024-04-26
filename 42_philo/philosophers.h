@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:07:06 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/26 19:35:54 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/26 21:13:10 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_args
 
 typedef struct s_philo
 {
+	pthread_t			thread;
 	int					id;
 	int					is_eating;
 	int					nb_meals;
@@ -73,6 +74,7 @@ void		destroy_data(t_data *data, pthread_mutex_t *forks, char **argv);
 void		init_philo(t_philo *philo, char **argv, t_data *data, t_args *args);
 void		init_args(t_args *args, char **argv);
 u_int64_t	get_precise_time(void);
+void		start_threads(t_philo *philo);
 
 
 #endif
