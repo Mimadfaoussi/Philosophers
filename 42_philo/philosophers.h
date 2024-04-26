@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:07:06 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/26 18:37:14 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/26 19:35:54 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,21 @@
 # include <stdint.h>
 
 
+typedef struct s_args
+{
+	int					total_meals;
+	int					nb_philos;
+	u_int64_t			time_to_eat;
+	u_int64_t			time_to_sleep;
+	u_int64_t			time_to_die;
+}				t_args;
+
+
 typedef struct s_philo
 {
 	int					id;
 	int					is_eating;
+	int					nb_meals;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
 	u_int64_t			start_time;
@@ -32,7 +43,7 @@ typedef struct s_philo
 	pthread_mutex_t		*print_mutex;
 	pthread_mutex_t		*eat_mutex;
 	pthread_mutex_t		*dead_mutex;
-
+	t_args				*args;
 }					t_philo;
 
 typedef struct s_data
@@ -45,13 +56,6 @@ typedef struct s_data
 	t_philo				*philo;
 }					t_data;
 
-typedef struct s_args
-{
-	int					nb_meals;
-	u_int64_t			time_to_eat;
-	u_int64_t			time_to_sleep;
-	u_int64_t			nb_meals;
-}				t_args;
 
 /** HELPER  functions */
 
@@ -66,6 +70,8 @@ int			check_input(int argc, char **argv);
 void		init_data(t_data *data, t_philo *philo, pthread_mutex_t *forks);
 void		init_forks(pthread_mutex_t *forks, char **argv);
 void		destroy_data(t_data *data, pthread_mutex_t *forks, char **argv);
+void		init_philo(t_philo *philo, char **argv, t_data *data, t_args *args);
+void		init_args(t_args *args, char **argv);
 u_int64_t	get_precise_time(void);
 
 

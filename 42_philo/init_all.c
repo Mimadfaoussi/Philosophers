@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 16:22:18 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/26 18:38:09 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/26 19:46:56 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,35 +34,41 @@ void	init_forks(pthread_mutex_t *forks, char **argv)
 	}
 }
 
-void	init_philo(t_philo *philo, char **argv, t_data *data)
+void	init_philo(t_philo *philo, char **argv, t_data *data, t_args *args)
 {
 	int	i;
 
 	i = 0;
 	while (i < ft_atoi(argv[1]))
 	{
-		philo->id = i + 1;
-		philo->is_eating = 0;
-		philo->left_fork = data->forks[i];
+		philo[i].id = i + 1;
+		philo[i].is_eating = 0;
+		philo[i].nb_meals = 0;
+		philo[i].left_fork = &data->forks[i];
 		if (i == ft_atoi(argv[1]) - 1)
-			philo->right_fork = data->forks[0];
+			philo[i].right_fork = &data->forks[0];
 		else
-			philo->right_fork = data->forks[i + 1];
-		philo->start_time = get_precise_time();
-		philo->last_eating = get_precise_time();
-		philo->print_mutex = data->print_mutex;
-		philo->eat_mutex = data->eat_mutex;
-		philo->dead_mutex = data->dead_mutex;
+			philo[i].right_fork = &data->forks[i + 1];
+		philo[i].start_time = get_precise_time();
+		philo[i].last_eating = get_precise_time();
+		philo[i].print_mutex = &data->print_mutex;
+		philo[i].eat_mutex = &data->eat_mutex;
+		philo[i].dead_mutex = &data->dead_mutex;
+		philo[i].args = args;
 		i++;
 	}
 }
 
-void	init_args(t_args *args, void **argv)
+void	init_args(t_args *args, char **argv)
 {
-	args->nb_meals = 0;
+	args->nb_philos = ft_atoi(argv[1]);
 	args->time_to_eat = ft_atoi(argv[3]);
 	args->time_to_sleep = ft_atoi(argv[4]);
 	args->time_to_die = ft_atoi(argv[2]);
+	if (argv[5] != NULL)
+		args->total_meals = ft_atoi(argv[5]);
+	else
+		args->total_meals = -1;
 }
 
 
