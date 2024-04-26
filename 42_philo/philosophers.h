@@ -6,7 +6,7 @@
 /*   By: mfaoussi <mfaoussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:07:06 by mfaoussi          #+#    #+#             */
-/*   Updated: 2024/04/26 17:13:11 by mfaoussi         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:20:22 by mfaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_philo
 	u_int64_t			last_eating;
 	u_int64_t			time_to_eat;
 	u_int64_t			time_to_sleep;
-	u_int64_t			time_to_think;
 	u_int64_t			time_to_die;
 	pthread_mutex_t		*print_mutex;
 	pthread_mutex_t		*eat_mutex;
