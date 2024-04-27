@@ -38,7 +38,7 @@ void	ft_usleep(u_int64_t	time_to_wait)
 	u_int64_t	start_time;
 
 	start_time = get_precise_time();
-	while ((get_precise_time() - start_time) < time_to_wait / 1000)
+	while ((get_precise_time() - start_time) < time_to_wait)
 	{
 		usleep(300);
 	}

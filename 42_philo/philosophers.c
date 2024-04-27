@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	init_args(&args, argv);
 	init_forks(forks, argv);
 	init_philo(philo, argv, &data, &args);
-	printall(philo);
+	// printall(philo);
 	start_threads(philo, &data);
 	// end_threads();
 	destroy_data(&data, forks, argv);
