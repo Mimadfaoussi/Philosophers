@@ -12,19 +12,30 @@
 
 #include "philosophers.h"
 
+// philo_dead(t_philo *philo)
+// {
+// 	pthread_mutex_lock(philo->dead_mutex)
+// 	if (philo->dead)
+// 	pthread_mutex_unlock(philo->dead_mutex)
+// }
+
 void	*routine(void *arg)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	if ((philo->id % 2) == 0)
-		printf("philo with id : %d\n", philo->id);
-	else
-		printf("bullshit %d\n",philo->id);
+		ft_usleep(1);
+	// while (!philo_dead(philo))
+	// {
+	// 	eat(philo);
+	// 	_sleep(philo);
+	// 	think(philo);
+	// }
 	return (NULL);
 }
 
-void	start_threads(t_philo *philo)
+void	start_threads(t_philo *philo, t_data *data)
 {
 	int	i;
 
@@ -32,7 +43,7 @@ void	start_threads(t_philo *philo)
 	while (i < philo->args->nb_philos)
 	{
 		if (pthread_create(&(philo[i].thread), NULL, &routine, &philo[i]) != 0)
-			printf("error\n");
+			printf("error %p\n",data);
 		i++;
 	}
 	i = 0;

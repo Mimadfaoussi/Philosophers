@@ -37,6 +37,7 @@ typedef struct s_philo
 	int					id;
 	int					is_eating;
 	int					nb_meals;
+	int					*dead;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
 	u_int64_t			start_time;
@@ -74,7 +75,8 @@ void		destroy_data(t_data *data, pthread_mutex_t *forks, char **argv);
 void		init_philo(t_philo *philo, char **argv, t_data *data, t_args *args);
 void		init_args(t_args *args, char **argv);
 u_int64_t	get_precise_time(void);
-void		start_threads(t_philo *philo);
+void		start_threads(t_philo *philo, t_data *data);
+void	ft_usleep(u_int64_t	time_to_wait);
 
 
 #endif

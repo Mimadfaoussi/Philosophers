@@ -37,7 +37,7 @@ int	check_input(int argc, char **argv)
 	}
 	if (argc == 6)
 	{
-		if (argv[5] < 0)
+		if (ft_atoi(argv[5]) < 0)
 			return (1);
 	}
 	if (ft_atoi(argv[1]) > 200)

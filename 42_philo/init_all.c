@@ -44,6 +44,7 @@ void	init_philo(t_philo *philo, char **argv, t_data *data, t_args *args)
 		philo[i].id = i + 1;
 		philo[i].is_eating = 0;
 		philo[i].nb_meals = 0;
+		philo[i].dead = &data->dead;
 		philo[i].left_fork = &data->forks[i];
 		if (i == ft_atoi(argv[1]) - 1)
 			philo[i].right_fork = &data->forks[0];
