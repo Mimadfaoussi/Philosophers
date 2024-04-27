@@ -12,12 +12,29 @@
 
 #include "philosophers.h"
 
-// philo_dead(t_philo *philo)
-// {
-// 	pthread_mutex_lock(philo->dead_mutex)
-// 	if (philo->dead)
-// 	pthread_mutex_unlock(philo->dead_mutex)
-// }
+philo_dead(t_philo *philo)
+{
+	pthread_mutex_lock(philo->dead_mutex)
+	if (*(philo->dead) == 1)
+	{
+		pthread_mutex_unlock(philo->dead_mutex);
+		return (1);
+	}
+	pthread_mutex_unlock(philo->dead_mutex);
+	return (0);
+}
+
+void	_sleep(t_philo *philo)
+{
+	u_int64_t	time;
+
+	pthread_mutex_lock(philo->print_mutex);
+	time = get_precise_time() -  philo->start_time;
+	if (philo_dead(philo == 0))
+		printf("%lu philo %d is sleeping\n", time, philo->id);
+	pthread_mutex_unlock(philo->print_mutex);
+	ft_usleep(philo->args->time_to_sleep);
+}
 
 void	*routine(void *arg)
 {
@@ -26,12 +43,12 @@ void	*routine(void *arg)
 	philo = (t_philo *)arg;
 	if ((philo->id % 2) == 0)
 		ft_usleep(1);
-	// while (!philo_dead(philo))
-	// {
-	// 	eat(philo);
-	// 	_sleep(philo);
-	// 	think(philo);
-	// }
+	while (philo_dead(philo) == 0)
+	{
+		eat(philo);
+		_sleep(philo);
+		think(philo);
+	}
 	return (NULL);
 }
 

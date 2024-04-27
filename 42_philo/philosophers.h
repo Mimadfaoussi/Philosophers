@@ -76,7 +76,7 @@ void		init_philo(t_philo *philo, char **argv, t_data *data, t_args *args);
 void		init_args(t_args *args, char **argv);
 u_int64_t	get_precise_time(void);
 void		start_threads(t_philo *philo, t_data *data);
-void	ft_usleep(u_int64_t	time_to_wait);
+void		ft_usleep(u_int64_t	time_to_wait);
 
 
 #endif
